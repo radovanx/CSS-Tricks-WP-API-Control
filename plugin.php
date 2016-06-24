@@ -4,16 +4,17 @@
  * @package CSS_Tricks_WP_API_Control
  */
 
-/*
-Plugin Name: CSS-Tricks WP API Control
-Plugin URI: https://css-tricks.com
-Description: Adds network settings to the WP API.
-Version: 1.0
-Author: Scott Fennell
-Author URI: http://scottfennell.org
-License: GPLv2 or later
-Text Domain: css-tricks-wp-api-control
-*/
+/**
+ * Plugin Name: CSS-Tricks WP API Control
+ * Plugin URI: https://css-tricks.com
+ * Description: Adds network settings to the WP API.
+ * Version: 1.0
+ * Author: Scott Fennell
+ * Author URI: http://scottfennell.org
+ * License: GPLv2 or later
+ * Text Domain: css-tricks-wp-api-control
+ * Network: TRUE
+ */
 
 /*
 This program is free software; you can redistribute it and/or
