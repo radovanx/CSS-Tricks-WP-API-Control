@@ -38,7 +38,12 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-// Define a slug for our plugin to use in CSS classes and such.
+/**
+ * Define a slug for our plugin to use in CSS classes and other namespacing.
+ * Also, since this plugin will only ever be active on the control install,
+ * other plugins can sniff for this constant in order to determine if
+ * they are on the control install or a client install.
+ */
 define( 'CSS_TRICKS_WP_API_CONTROL', 'css_tricks_wp_api_control' );
 
 /**
