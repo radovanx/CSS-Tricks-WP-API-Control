@@ -38,7 +38,7 @@ class CSS_Tricks_WP_API_Control_Route {
 			CSS_TRICKS_WP_API_CONTROL . '/' . $version,
 
 			// The route for querying network settings.
-			'/options/',
+			'/network_settings/',
 
 			// An array of args for config'ing our route.
 			array(
@@ -55,11 +55,11 @@ class CSS_Tricks_WP_API_Control_Route {
 					// A url variable for the user to specify a meta_key for the option he wishes to grab.
 					'meta_key' => array(
 
-						// There is no default.
-						'default' => FALSE,
+						// You must provide a meta key.
+						'required' => TRUE,
 
 						// Sanizite the meta key.
-						'sanitize_callback' => 'sanitize_key',
+						'validate_callback' => array( $this, 'validate_meta_key' ),
 					
 					),
 				
@@ -79,7 +79,21 @@ class CSS_Tricks_WP_API_Control_Route {
 	}
 
 	/**
-	 * A permissions callback for register_rest_route.
+	 * A validation callback for register_rest_route().
+	 * 
+	 * @param  string $input The name of the network setting we're querying from the control.
+	 * @return bool          Returns TRUE if the meta_key is valid, else FALSE.
+	 */
+	function validate_meta_key( $meta_key ) {
+
+		if( sanitize_key( $meta_key ) === $meta_key ) { return TRUE; }
+
+		return FALSE;
+
+	}
+
+	/**
+	 * A permissions callback for register_rest_route().
 	 * 
 	 * @return bool Returns TRUE if the user can update core, else FALSE.
 	 */
@@ -97,14 +111,11 @@ class CSS_Tricks_WP_API_Control_Route {
 	 */
 	function callback( $args ) {
 		
-	 	// Grab the url vars.
-		$args = $args -> get_params();
+	 	// Grab the name of the network setting we're grabbing from the control.
+		$meta_key = $args -> get_param( 'meta_key' );
 
-		// If there is no meta_key provided, bail.
-		if( empty( $args['meta_key'] ) ) { return FALSE; }
-
-		// Get the site option.
-		$out = get_site_option( $args['meta_key'] );
+		// Grab the value of the network setting we're grabbing from the control.
+		$out = get_site_option( $meta_key );
 
 		return $out;
 
