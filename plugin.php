@@ -53,5 +53,5 @@ define( 'CSS_TRICKS_WP_API_CONTROL_DIR', plugin_dir_path( __FILE__ ) );
 
 // For each php file in the inc/ folder, require it.
 foreach( glob( CSS_TRICKS_WP_API_CONTROL_DIR . 'inc/*.php' ) as $filename ) {
-    require_once( $filename );
+	require_once( $filename );
 }
