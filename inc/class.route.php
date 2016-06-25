@@ -84,7 +84,7 @@ class CSS_Tricks_WP_API_Control_Route {
 	 * @param  string $input The name of the network setting we're querying from the control.
 	 * @return bool          Returns TRUE if the meta_key is valid, else FALSE.
 	 */
-	function validate_meta_key( $meta_key ) {
+	function validate_callback( $meta_key ) {
 
 		if( sanitize_key( $meta_key ) === $meta_key ) { return TRUE; }
 
