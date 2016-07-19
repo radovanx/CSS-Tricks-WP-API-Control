@@ -50,7 +50,7 @@ define( 'CSS_TRICKS_WP_API_CONTROL', 'css_tricks_wp_api_control' );
  * Define a version that's more easily accessible than the docblock one,
  * for cache-busting.
  */
-define( 'CSS_TRICKS_WP_API_CONTROL_VERSION', '1.0' );
+define( 'CSS_TRICKS_WP_API_CONTROL_VERSION', '1.1' );
 
 // Define paths and urls for easy loading of files.
 define( 'CSS_TRICKS_WP_API_CONTROL_URL', plugin_dir_url( __FILE__ ) );
