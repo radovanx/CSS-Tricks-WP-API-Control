@@ -59,7 +59,7 @@ class CSS_Tricks_WP_API_Control_Route {
 						'required' => TRUE,
 
 						// Sanizite the meta key.
-						'validate_callback' => array( $this, 'validate_meta_key' ),
+						'validate_callback' => array( $this, 'validate_callback' ),
 					
 					),
 				
